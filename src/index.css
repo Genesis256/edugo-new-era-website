@@ -1,0 +1,81 @@
+/* src/index.css */
+@import 'tailwindcss'; /* Must be the first line */
+
+@theme {
+  /* Brand Colors as CSS Variables */
+  --color-brand-primary: #09577c;
+  --color-brand-secondary: #5ec5f0;
+  --color-brand-accent: theme('colors.cyan.500'); /* Resolves to cyan 500 */
+
+  /* Neutral Palette (using Tailwind's slate as an example, or define fully custom) */
+  /* Example: --color-neutral-50: theme("colors.slate.50"); ... up to 950 */
+
+  /* Typography */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
+
+  /* Custom Breakpoints (if defaults are insufficient) */
+  /* --breakpoint-3xl: "1920px"; */
+
+  /* Add other theme values here: spacing, radii, custom shadows etc. */
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    color: theme('colors.slate.700'); /* Default text color */
+    background-color: theme('colors.white'); /* Default background */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    color: theme('colors.slate.900'); /* Default heading color */
+  }
+
+  /* Dark mode base styles */
+  .dark body {
+    background-color: theme('colors.slate.900');
+    color: theme('colors.slate.300');
+  }
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4,
+  .dark h5,
+  .dark h6 {
+    color: theme('colors.slate.100');
+  }
+
+  /* Add other global base styles, e.g., for links */
+  a {
+    /* Consider default link styling */
+  }
+}
+
+@layer components {
+  /* Define reusable component base styles if necessary, prefer utility composition. */
+  /* Example:
+  .btn-primary {
+    @apply bg-brand-primary text-white py-2 px-4 rounded hover:bg-opacity-90;
+  }
+  */
+}
+
+@layer utilities {
+  /* Define custom utility classes if specific non-composable utilities are needed. */
+  /* Example from guide:
+  @utility .custom-utility {
+    property: value;
+    @variant hover {
+      property: hover-value;
+    }
+  }
+  */
+}
